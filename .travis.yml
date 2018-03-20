@@ -1,4 +1,7 @@
 language: node_js
+before_install:
+  - openssl aes-256-cbc -k"$super_secret_password" -in se234.pem.enc -out se234.pem -d
+  - sudo chmod 400 se234.pem
 install: true
 script: true
 after_success:
@@ -7,8 +10,6 @@ after_success:
 env:
   global:
     secure: pQBEdvI5i9g8ErWeWXTDpFRCq20JmSWD0dJShvqk0as9AI2/enYphyQvQTDPec+jeK8m8eqkPafPKNHhFFJxD1wGrCpOAPTx/JOGv8QWIGk51+5a/4Oz+xR4Xd/Azpn/O+RFm2ZyPJ7nlMdU8GmJzOXdoLb8IlQQTlaPGXR6qOVGJzLmjau0HQGCkiSlL14U/+W5U1vffocZDYlApFoK4yFB22sQleRwgdssvpVKPd8mds6k4soAwXcuksFGoBM1NTQu+z28HxCXaHt9pV1GOIeiW5QQ6Bni5ogAO81yO6wVUAzh1LPxJuwkDJSlaKINpbBbXhEYXzU1S7l8otQJT3PekN2ES2ACHiKgylUIrEWXAbTRJle5ZIrGTzH3qndoG0pmzFWX0ofAl4Aof6OBM0mPzuRSx4QrEMOsrOu5MTuFNQjGoYZk4axbRTRM0qwn8vcGIHeOGEUBrkXWpBPm7ehVFtNPoeRBS/0PDL6KrJs0A7/DCdCkstlY3yNAjy12U/kjPqCCsrlwIb+wehDy9rSnKHQsYDt59SOmHh5YZausuBPKxmdMi+QkjhG/ioTc9Y6+tDtCAsvpPiCxl+cGdJQTwvUEuTR3BJEgGWl5NTiqNaRBXaDnnuTlb2HcMpuk63NEay10p9BiTDhWMz810z687MTdZH1TgHaXCFMM0ws=
-before_install:
-  - openssl aes-256-cbc -k"$super_secret_password" -in se234.pem.enc -out se234.pem -d
 addons:
   ssh_know_hosts:
     - 52.32.249.131
